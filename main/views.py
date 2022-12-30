@@ -4,6 +4,6 @@ from django.http import HttpResponse
 def index(request):
     return render(request, 'main/index.html')
 
-def info(request):
-    return HttpResponse('<a href="/">Новый текст, ссылка на главную</a>')
+def about(request):
+    return render(request, 'main/about.html')
 
