@@ -7,5 +7,11 @@ class Main_model(models.Model):
     last_modified = models.DateTimeField(auto_now=True)
     image = models.FileField(upload_to='img/')
 
+    # Для корректного отображения титульника задачи в админке
     def __str__(self):
         return self.title
+
+    # Для корректного отображения полей в админке
+    class Meta:
+        verbose_name = "Задача"
+        verbose_name_plural = "Задачи"
