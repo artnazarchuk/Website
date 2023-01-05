@@ -1,6 +1,6 @@
 from django.db import models
 
-class Main_model(models.Model):
+class MainModel(models.Model):
     title = models.CharField('Title', max_length=50)
     description = models.TextField('description')
     created_on = models.DateTimeField(auto_now_add=True)
