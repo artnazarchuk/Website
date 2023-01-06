@@ -13,13 +13,16 @@
 {% block content %}
     <div class="container">
         <h2>Создать новую задачу</h2>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
-            {{ form.title }} <br>
+            {{ form.title }} <br> <br>
             </div>
             <div class="form-group">
             {{ form.description }} <br>
+            </div>
+            <div class="form-group">
+            {{ form.image }} <br> <br>
             </div>
             <button type="submit" class="btn btn-success">Добавить</button> <br> <br>
         </form>

@@ -13,11 +13,12 @@ def about(request):
 def create(request):
     form = MainModelForm()
     if request.method == 'POST':
-        form = MainModelForm(request.POST)
+        form = MainModelForm(request.POST, request.FILES)
         if form.is_valid():
             task = MainModel(
                 title=form.cleaned_data['title'],
                 description=form.cleaned_data['description'],
+                image=form.cleaned_data['image'],
             )
             task.save()
     context = {
