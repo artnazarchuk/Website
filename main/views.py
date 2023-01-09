@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import MainModel
 from .forms import MainModelForm
+from django.shortcuts import redirect
 
 def index(request):
-    main_models = MainModel.objects.order_by('id')
+    main_models = MainModel.objects.order_by('-id')
     return render(request, 'main/index.html', {'title': 'Главная страница', 'main_models': main_models})
 
 def about(request):
@@ -21,6 +22,7 @@ def create(request):
                 image=form.cleaned_data['image'],
             )
             task.save()
+            return redirect('home')
     context = {
         'form': form,
     }
